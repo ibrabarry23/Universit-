@@ -1,0 +1,53 @@
+\documentclass{article}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{
+  language=C,
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue}\bfseries,
+  commentstyle=\color{gray},
+  stringstyle=\color{red},
+  numbers=left,
+  numberstyle=\small\color{gray}, % Font leggibile per i numeri
+  stepnumber=1,
+  numbersep=0pt, % I numeri restano attaccati al riquadro
+  tabsize=4,
+  showspaces=false,
+  showstringspaces=false,
+  breaklines=true,
+  frame=single,
+  rulecolor=\color{gray},   % Colore del bordo
+  framexleftmargin=10pt,    % Spazio sufficiente per i numeri all'interno
+  xleftmargin=0pt,          % Margine esterno al riquadro
+  xrightmargin=0pt,         % Margine esterno al riquadro
+  framesep=5pt,             % Spazio interno al riquadro
+  framewidth=0.4pt,         % Spessore del bordo
+  captionpos=b,
+}
+
+\begin{document}
+
+\begin{lstlisting}[caption=Calcolo di Fibonacci, label=fibonacci]
+int fib(int n) {
+    int fib,      // current
+        fib_1,    // previous and
+        fib_2;    // previous previous iterations
+
+    if (n <= 2) return 1;  // caso base
+
+    // prepara considerando n=2
+    fib = fib_1 = 1;
+
+    for (int i = 3; i <= n; i++) {
+        // prepara iterazione corrente
+        fib_2 = fib_1;
+        fib_1 = fib;
+        fib = fib_1 + fib_2;
+    }
+
+    return fib;
+}
+\end{lstlisting}
+
+\end{document}
